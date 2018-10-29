@@ -1,0 +1,8 @@
+# Rule 1
+User-agent: *
+Allow: /
+
+# URL of the Sitemap
+Sitemap: http://www.devshop.co.zw/sitemap.xml
+
+ 
