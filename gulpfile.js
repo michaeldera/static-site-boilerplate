@@ -10,8 +10,10 @@ var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
+var del = require('del');
+var runSequence = require('run-sequence');
 
-gulp.task('useref', function(){
+gulp.task('useref', () => {
     return gulp.src('src/*.html')
       .pipe(useref())
       .pipe(gulpIf('*.js', uglify()))
@@ -20,7 +22,7 @@ gulp.task('useref', function(){
       .pipe(gulp.dest('dist'))
   });
 
-  gulp.task('images', function(){
+  gulp.task('images', () => {
     return gulp.src('src/images/**/*.+(png|jpg|jpeg|gif|svg)')
     // Caching images that ran through imagemin
     .pipe(cache(imagemin({
@@ -29,7 +31,16 @@ gulp.task('useref', function(){
     .pipe(gulp.dest('dist/images'))
   });
 
-gulp.task('browserSync', function() {
+  gulp.task('fonts', () => {
+    return gulp.src('src/fonts/**/*')
+    .pipe(gulp.dest('dist/fonts'))
+  });
+
+  gulp.task('clean:dist', () => {
+    return del.sync('dist');
+  });
+
+gulp.task('browserSync', () => {
     browserSync.init({
       server: {
         baseDir: 'dist'
@@ -53,3 +64,15 @@ gulp.task('watch', ['browserSync', 'sass'], () =>{
     //other glup watch functions can go here 
 });
 
+gulp.task('build',  (callback) => {
+    runSequence('clean:dist', 
+      ['sass', 'useref', 'images', 'fonts'],
+      callback
+    )
+  })
+
+  gulp.task('default', (callback) => {
+    runSequence(['sass','browserSync', 'watch'],
+      callback
+    )
+  })
