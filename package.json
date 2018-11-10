@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/michaeldera/html-boilerplate/issues"
   },
-  "homepage": "https://github.com/michaeldera/html-boilerplate#readme"
+  "homepage": "https://github.com/michaeldera/html-boilerplate#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
