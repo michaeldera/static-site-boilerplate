@@ -1,3 +1,6 @@
 
 #Ignore node_modules and its children
-node_modules
+node_modules/
+
+#ignore contents of dist  becuase they a regenerated anyway
+dist/

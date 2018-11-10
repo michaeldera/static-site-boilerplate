@@ -51,6 +51,7 @@ gulp.task('browserSync', () => {
 gulp.task('sass', () =>{
     return gulp.src('src/scss/**/*.scss')
         .pipe(sass())
+        .pipe(cssnano())
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.reload({
             stream:true
