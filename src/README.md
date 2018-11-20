@@ -13,5 +13,3 @@ Simply clone the repository or download zip file then go into the project direct
 
 ### Scripts 
 Run `gulp build` on the command line to build files for production.
-
-
