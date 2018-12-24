@@ -1,3 +1,5 @@
+const { series, parallel } = require(gulp);
+
 const gulp = require('gulp');
 //Plugin for preprocessing sass
 const sass = require('gulp-sass');
