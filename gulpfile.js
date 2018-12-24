@@ -1,17 +1,17 @@
-var gulp = require('gulp');
+const gulp = require('gulp');
 //Plugin for preprocessing sass
-var sass = require('gulp-sass');
+const sass = require('gulp-sass');
 //Browser sync for live-reloading 
-var browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create();
 
-var useref = require('gulp-useref');
-var uglify = require('gulp-uglify');
-var gulpIf = require('gulp-if');
-var cssnano = require('gulp-cssnano');
-var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cache');
-var del = require('del');
-var runSequence = require('run-sequence');
+const useref = require('gulp-useref');
+const uglify = require('gulp-uglify');
+const gulpIf = require('gulp-if');
+const cssnano = require('gulp-cssnano');
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache');
+const del = require('del');
+const runSequence = require('run-sequence');
 
 gulp.task('useref', () => {
     return gulp.src('src/*.html')
