@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/michaeldera/html-boilerplate#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.10",
+    "browser-sync": "^2.26.12",
     "del": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-cache": "^1.1.3",
